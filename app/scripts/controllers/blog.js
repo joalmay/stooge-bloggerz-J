@@ -1,14 +1,15 @@
 'use strict';
 
-angular.module('stoogeBloggerzApp')
-  .controller('BlogCtrl', function ($scope) {
-  		$scope.blogPosts =    [
-		  { title: 'Moe says...', body: '"Why I oughta..."', author: 'Moe'},
-		  { title: 'Curly says...', body: '"Nyuk Nyuk Nyuk!"', author: 'Curly'},
-		  { title: 'Moe says...', body: '"You nitwit!"', author: 'Moe'},
-		  { title: 'Larry says...', body: '"What\'s the idea?"', author: 'Larry'}
-	];
-
-	var blog = {};  
+angular.module('stoogeBloggerzApp').
+	controller('BlogCtrl', function ($scope, blog) {
+  	
+	/*blog.getPosts().success(function(data) {
+		$scope.blogPosts = data.results;
+		console.log($scope.blogPosts);
+			
+	});
+	*/
+	$scope.blogPosts = blog.getPosts();
+	//var blog = {};  
 
   });
